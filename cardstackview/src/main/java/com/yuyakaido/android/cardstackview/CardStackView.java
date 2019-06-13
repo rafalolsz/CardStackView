@@ -47,7 +47,9 @@ public class CardStackView extends RecyclerView {
             getAdapter().unregisterAdapterDataObserver(observer);
             getAdapter().onDetachedFromRecyclerView(this);
         }
-        adapter.registerAdapterDataObserver(observer);
+        if (adapter != null) {
+            adapter.registerAdapterDataObserver(observer);
+        }
         super.setAdapter(adapter);
     }
 
